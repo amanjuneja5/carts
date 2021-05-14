@@ -19,6 +19,7 @@ jobs:
       GROUP: weaveworksdemos 
       COMMIT: ${{ github.sha }}
       REPO: carts
+      IMAGE_NAME: gcr.io/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.GCP_APP_NAME }}
     steps:
     - uses: actions/checkout@v2
 
@@ -34,18 +35,33 @@ jobs:
     - name: Build jar files
       run: ./scripts/build.sh
 
+    - name: Login gcloud
+      uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+      with:
+        GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+        service_account_email: ${{ secrets.GCP_EMAIL }}
+        service_account_key: ${{ secrets.GCP_CREDENTIALS }}
+        
+    - name: Configure Docker
+      run: gcloud auth configure-docker --quiet
+
+    - name: Build Docker image
+      run: docker build . -t $IMAGE_NAME
+      
+    - name: Push Docker image
+      run: docker push $IMAGE_NAME
     #
     #
     # Push to dockerhub
-    - name: Push to Docker Hub
-      uses: docker/build-push-action@v1
-      if: startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/master'
-      with:
-        username: ${{ secrets.DOCKER_USER }}
-        password: ${{ secrets.DOCKER_PASS }}
-        repository: ${{ env.GROUP }}/${{ env.REPO }}
-        tag_with_ref: true
-        tag_with_sha: true
-        path: docker/carts
-        dockerfile: docker/carts/Dockerfile
+#     - name: Push to Docker Hub
+#       uses: docker/build-push-action@v1
+#       if: startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/master'
+#       with:
+#         username: ${{ secrets.DOCKER_USER }}
+#         password: ${{ secrets.DOCKER_PASS }}
+#         repository: ${{ env.GROUP }}/${{ env.REPO }}
+#         tag_with_ref: true
+#         tag_with_sha: true
+#         path: docker/carts
+#         dockerfile: docker/carts/Dockerfile
 
