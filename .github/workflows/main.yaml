@@ -50,7 +50,7 @@ jobs:
       
     - name: Push Docker image
       run: docker push $IMAGE_NAME
-    #
+    
     #
     # Push to dockerhub
 #     - name: Push to Docker Hub
