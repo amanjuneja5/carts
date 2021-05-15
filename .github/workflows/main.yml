@@ -58,7 +58,5 @@ jobs:
       run: gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
   
     - name: Deploy application
-      uses: WyriHaximus/github-action-helm3@v2.0
-      with:
-        exec: helm upgrade carts ./deploy/helm-chart --install --set image.tag=$COMMIT
+      run:  helm upgrade carts ./deploy/helm-chart --install --set image.tag=$COMMIT
     
