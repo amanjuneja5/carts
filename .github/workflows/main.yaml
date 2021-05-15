@@ -45,8 +45,8 @@ jobs:
     - name: Configure Docker
       run: gcloud auth configure-docker --quiet
 
-    - name: Build Docker image
-      run: docker build . -t $IMAGE_NAME:$COMMIT
+    - name: Tag Docker image
+      run: docker tag $GROUP/carts:$COMMIT  $IMAGE_NAME:$COMMIT
       
     - name: Push Docker image
       run: docker push $IMAGE_NAME:$COMMIT
