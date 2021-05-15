@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: carts
+  description:  Carts service
+  tags:
+    - spring-boot
+spec:
+  type: service
+  lifecycle:  production
+  
