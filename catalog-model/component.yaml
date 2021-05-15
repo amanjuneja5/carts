@@ -4,7 +4,7 @@ metadata:
   name: carts
   description:  Carts service
   annotations:
-    backstage.io/kubernetes-label-selector: 'name=carts'
+    'backstage.io/kubernetes-label-selector': 'name=carts'
   tags:
     - spring-boot
 spec:
