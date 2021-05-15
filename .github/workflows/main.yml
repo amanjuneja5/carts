@@ -1,4 +1,4 @@
-name: ci
+name: carts-ci
 
 on:
   push:
@@ -58,5 +58,5 @@ jobs:
       run: gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
   
     - name: Deploy application
-      run:  helm upgrade carts ./deploy/helm-chart --install --set image.tag=$COMMIT
+      run:  helm upgrade carts ./deploy/helm-chart --install --set image.tag=$COMMIT -n sock-shop
     
