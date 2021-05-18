@@ -6,6 +6,7 @@ metadata:
   annotations:
     backstage.io/kubernetes-label-selector: 'name=carts'
     github.com/project-slug: 'amanjuneja5/carts'
+    datadoghq.com/dashboard-url: 'https://datadog.com'
   tags:
     - spring-boot
 spec:
