@@ -6,7 +6,7 @@ metadata:
   annotations:
     backstage.io/kubernetes-label-selector: 'name=carts'
     github.com/project-slug: 'amanjuneja5/carts'
-    datadoghq.com/dashboard-url: 'https://datadog.com'
+    datadoghq.com/dashboard-url: 'https://app.datadoghq.com/screen/integration/30341/kubernetes-deployments-overview?from_ts=1621356836171&live=true&to_ts=1621360436171&tpl_var_kube_namespace=sock-shop&tpl_var_kube_deployment=carts'
   tags:
     - spring-boot
 spec:
