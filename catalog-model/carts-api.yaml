@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: carts-api
+  description: API for the carts services
+spec:
+  type: openapi
+  lifecycle: production
+  owner: Infracloud
+  definition:
+    $json: https://github.com/amanjuneja5/carts/blob/master/api-spec/carts.json
