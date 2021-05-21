@@ -7,7 +7,7 @@ metadata:
     backstage.io/kubernetes-label-selector: 'name=carts'
     github.com/project-slug: 'amanjuneja5/carts'
     datadoghq.com/dashboard-url: 'https://app.datadoghq.com/screen/integration/30341/kubernetes-deployments-overview?from_ts=1621356836171&live=true&to_ts=1621360436171&tpl_var_kube_namespace=sock-shop&tpl_var_kube_deployment=carts'
-    jenkins.io/github-folder: 'dev-portal/carts'
+    jenkins.io/github-folder: 'dev-portal-demo/carts'
     circleci.com/project-slug: github/abhisheks-infracloud/carts
   tags:
     - spring-boot
